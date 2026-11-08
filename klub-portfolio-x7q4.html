@@ -1,0 +1,562 @@
+<!doctype html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Портфоліо, яке продає · повна версія для клубу</title>
+<meta property="og:title" content="Портфоліо, яке продає · версія для «Закулісся»">
+<meta property="og:description" content="Як замовник насправді дивиться на ваше портфоліо і як зібрати його на один екран. Матеріал для учасників клубу.">
+<meta property="og:image" content="https://smmtanya.github.io/og.jpg?v=469">
+<link rel="icon" href="logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600;1,700&family=Manrope:wght@400;500;600;700&display=swap">
+<style>
+:root{
+  --bg:#FBF8F4;--card:#FFFDFA;--blush:#F6EDEB;--head:#33292B;--text:#4A4143;--soft:#776C6D;--line:#EAE2DD;
+  --wine:#8A2C38;--wine-hover:#74222D;--good:#2F6B4F;--goodbg:#EEF5F0;--badbg:#F8ECEC;
+  --serif:"Playfair Display", Georgia, "Times New Roman", serif;
+  --sans:"Manrope", "Segoe UI", system-ui, sans-serif;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);font-family:var(--sans);font-size:18px;line-height:1.7}
+.band{padding-left:max(20px, env(safe-area-inset-left, 0px));padding-right:max(20px, env(safe-area-inset-right, 0px))}
+.in{max-width:1000px;margin:0 auto}
+.narrow{max-width:760px;margin:0 auto}
+h1,h2,h3{font-family:var(--serif);font-weight:700;color:var(--head);line-height:1.12;margin:0;text-wrap:balance}
+em{font-family:var(--serif);font-style:italic;color:var(--wine);font-weight:700}
+p{margin:0}
+p + p{margin-top:12px}
+.label{font-size:13px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--wine)}
+.btn{display:inline-flex;align-items:center;justify-content:center;font:inherit;font-weight:600;font-size:16px;text-decoration:none;
+  padding:13px 20px;border-radius:12px;border:1px solid var(--wine);background:var(--wine);color:#FFF8F5;cursor:pointer;transition:background .2s ease}
+.btn:hover{background:var(--wine-hover)}
+.btn.soft{background:transparent;color:var(--wine)}
+.btn.soft:hover{background:var(--blush)}
+.btn:focus-visible,button:focus-visible,a:focus-visible{outline:2px solid var(--wine);outline-offset:3px}
+section{padding-block:64px;border-top:1px solid var(--line)}
+.h2{font-size:clamp(28px,4vw,40px)}
+.sub{margin-top:12px;max-width:62ch}
+.num{font-family:var(--serif);font-style:italic;color:var(--wine);font-weight:700}
+
+nav{padding-block:22px}
+nav .in{display:flex;justify-content:space-between;align-items:center;gap:16px}
+.logo{font-family:var(--serif);font-weight:700;font-size:22px;color:var(--head);text-decoration:none}
+.badge{font-size:13px;font-weight:700;color:var(--wine);background:var(--blush);border-radius:999px;padding:6px 12px}
+
+.hero{padding-block:24px 56px}
+.hero h1{font-size:clamp(38px,6vw,64px);line-height:1.05;margin-top:14px}
+.hero .lead{margin-top:20px;max-width:58ch;font-size:19px}
+.toc{margin-top:30px;display:grid;grid-template-columns:repeat(2,1fr);gap:8px 24px;padding:20px 24px;background:var(--card);border:1px solid var(--line);border-radius:16px}
+.toc a{color:var(--head);text-decoration:none;font-weight:600;font-size:16px;display:flex;gap:10px}
+.toc a:hover{color:var(--wine)}
+.toc a span{color:var(--wine);font-family:var(--serif);font-style:italic;min-width:22px}
+
+/* psychology */
+.grid2{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:28px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px 22px 24px;min-width:0}
+.card h3{font-size:21px;margin-bottom:8px}
+.card .so{margin-top:12px;padding-top:12px;border-top:1px dashed var(--line);font-size:16px;color:var(--head)}
+.card .so b{color:var(--wine)}
+.src{font-size:13px;color:var(--soft);margin-top:10px}
+
+.quote{margin-top:28px;background:var(--blush);border-radius:16px;padding:24px 26px}
+.quote p{font-family:var(--serif);font-style:italic;font-weight:600;font-size:21px;color:var(--head);line-height:1.45}
+
+/* screen */
+.screen{margin-top:28px;display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:start}
+.mock{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:18px;position:sticky;top:16px}
+.mock .zone{border:1.5px dashed var(--line);border-radius:10px;padding:10px 12px;margin-top:8px;font-size:14px;color:var(--soft)}
+.mock .zone b{color:var(--head);display:block;font-size:15px}
+.mock .zone.hot{border-color:var(--wine);background:#FCF5F3}
+.mock .fold{margin:12px 0 4px;font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--wine);text-align:center;border-top:2px solid var(--wine);padding-top:6px}
+.steps{display:grid;gap:14px}
+.step{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px 20px}
+.step h3{font-size:20px;display:flex;gap:10px;align-items:baseline}
+.step .why{font-size:15px;color:var(--soft);margin-top:6px}
+.vs{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px;font-size:15px;line-height:1.55}
+.vs div{border-radius:10px;padding:10px 12px}
+.vs .no{background:var(--badbg)}
+.vs .yes{background:var(--goodbg)}
+.vs small{display:block;font-weight:700;font-size:12px;letter-spacing:.08em;text-transform:uppercase;margin-bottom:4px}
+.vs .no small{color:var(--wine)}
+.vs .yes small{color:var(--good)}
+
+/* case formula */
+.formula{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:26px}
+.formula div{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px}
+.formula b{display:block;font-family:var(--serif);font-size:20px;color:var(--wine)}
+.formula span{font-size:15px}
+.example{margin-top:18px}
+
+/* roles */
+.roles{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}
+.role{font:inherit;font-size:15px;font-weight:600;padding:10px 15px;border-radius:12px;border:1px solid var(--line);background:var(--card);color:var(--head);cursor:pointer}
+.role:hover{border-color:var(--wine)}
+.role[aria-pressed="true"]{background:var(--wine);border-color:var(--wine);color:#FFF8F5}
+.rolebox{margin-top:20px;background:var(--card);border:1px solid var(--line);border-radius:18px;padding:clamp(20px,4vw,32px)}
+.rolebox h3{font-size:19px;margin-top:20px}
+.rolebox h3:first-child{margin-top:0}
+.rolebox ul{margin:8px 0 0;padding-left:20px}
+.rolebox li + li{margin-top:6px}
+.pk{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:10px}
+.pk div{border:1px solid var(--line);border-radius:12px;padding:12px 14px;font-size:15px}
+.pk div.mid{border-color:var(--wine);background:#FCF5F3}
+.pk b{display:block;color:var(--head)}
+.ph{color:var(--wine);font-weight:600}
+
+/* red flags */
+.flags{list-style:none;padding:0;margin:26px 0 0;display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.flags li{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--wine);border-radius:10px;padding:12px 14px;font-size:16px}
+.flags b{color:var(--head)}
+
+/* message */
+.tpl{margin-top:22px;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px 24px}
+.tpl ol{margin:10px 0 0;padding-left:22px}
+.tpl li + li{margin-top:6px}
+.letter{margin-top:16px;background:var(--bg);border-radius:12px;padding:16px 18px;font-size:16px;white-space:pre-line;color:var(--head)}
+.tools{display:flex;flex-wrap:wrap;gap:12px;margin-top:14px;align-items:center}
+.status{font-size:15px;color:var(--soft)}
+
+/* score */
+.score{list-style:none;margin:24px 0 0;padding:0;display:grid;gap:8px}
+.score li{display:grid;grid-template-columns:26px 1fr;gap:10px;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:11px 14px;font-size:16px}
+.score input{width:19px;height:19px;margin:4px 0 0;accent-color:var(--wine)}
+.score label{cursor:pointer}
+.score .grp{display:block;grid-column:1/-1;background:none;border:0;padding:10px 0 0;font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--wine)}
+.result{margin-top:16px;background:var(--blush);border-radius:14px;padding:16px 20px;font-weight:600;color:var(--head)}
+
+/* plan */
+.plan{margin-top:24px;display:grid;gap:10px}
+.plan div{display:grid;grid-template-columns:96px 1fr;gap:14px;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 16px;align-items:baseline}
+.plan b{font-family:var(--serif);font-style:italic;color:var(--wine);font-size:19px}
+
+footer{padding-block:32px 48px;font-size:14px;color:var(--soft);border-top:1px solid var(--line)}
+footer .in{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px 24px}
+
+@media (max-width:820px){
+  section{padding-block:48px}
+  .toc,.grid2,.screen,.flags,.pk{grid-template-columns:1fr}
+  .formula{grid-template-columns:1fr 1fr}
+  .mock{position:static}
+  .vs{grid-template-columns:1fr}
+}
+@media print{
+  nav,.tools,.roles,footer{display:none!important}
+  body{background:#fff;font-size:12pt}
+  section{padding-block:14pt}
+  .card,.step,.tpl,.rolebox,.flags li{break-inside:avoid}
+  .mock{position:static}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<nav class="band">
+  <div class="in">
+    <span class="logo">Закулісся</span>
+    <span class="badge">Тільки для учасників клубу</span>
+  </div>
+</nav>
+
+<header class="band hero">
+  <div class="in">
+    <div class="label">Повна версія · #шаблон</div>
+    <h1>Портфоліо, яке <em>продає за вас</em></h1>
+    <p class="lead">Безкоштовний шаблон показує, що написати. А тут я розбираю, чому саме так: як замовник насправді дивиться на ваше портфоліо, що він думає в перші секунди і через що закриває його, не дочитавши. Я дивлюсь на це з боку людини, яка сама наймає і платить підрядникам.</p>
+    <nav class="toc" aria-label="Зміст">
+      <a href="#psy"><span>1</span>Що думає замовник</a>
+      <a href="#screen"><span>2</span>Один екран замість 10 сторінок</a>
+      <a href="#case"><span>3</span>Формула кейсу</a>
+      <a href="#nocase"><span>4</span>Якщо кейсів немає</a>
+      <a href="#roles"><span>5</span>Готові тексти під 5 ролей</a>
+      <a href="#price"><span>6</span>Як показати ціну</a>
+      <a href="#flags"><span>7</span>Через що я закриваю портфоліо</a>
+      <a href="#msg"><span>8</span>Перше повідомлення замовнику</a>
+      <a href="#score"><span>9</span>Перевірка на 20 балів</a>
+      <a href="#plan"><span>10</span>План на одну годину</a>
+    </nav>
+  </div>
+</header>
+
+<!-- 1 -->
+<section class="band" id="psy">
+  <div class="in">
+    <div class="label">Розділ 1</div>
+    <h2 class="h2" style="margin-top:10px">Що відбувається в голові <em>замовника</em></h2>
+    <p class="sub">Замовник не читає ваше портфоліо. Він його сканує і за кілька секунд вирішує, чи читати далі. Ось 6 механізмів, які в цей момент працюють. Кожен з них пояснює одне правило шаблону.</p>
+
+    <div class="grid2">
+      <div class="card">
+        <h3><span class="num">1.</span> Сканування замість читання</h3>
+        <p>На сторінці люди читають у середньому не більше 28% тексту, решту пробігають очима. Погляд іде по заголовках, цифрах і першим словам абзаців.</p>
+        <p class="so"><b>Тому:</b> головне в заголовках і цифрах. Якщо прочитати тільки їх, має бути зрозуміло, хто ви і що робите.</p>
+        <p class="src">Nielsen Norman Group, дослідження поведінки читачів</p>
+      </div>
+      <div class="card">
+        <h3><span class="num">2.</span> Рішення за секунди</h3>
+        <p>Рекрутери в середньому дивляться на резюме близько 7 секунд, перш ніж вирішити, читати далі чи ні. З портфоліо так само: перший екран або чіпляє, або все.</p>
+        <p class="so"><b>Тому:</b> на першому екрані лише 3 речі: що ви робите, для кого і один найсильніший результат.</p>
+        <p class="src">Ladders, eye-tracking дослідження 2018 року</p>
+      </div>
+      <div class="card">
+        <h3><span class="num">3.</span> «А що з цього мені?»</h3>
+        <p>Замовник читає не про вас, а про свою проблему. «Я креативна і відповідальна» він пропускає, бо так пишуть усі. «Ролики з вашого ефіру за 48 годин» чіпляє, бо це про нього.</p>
+        <p class="so"><b>Тому:</b> кожне речення перевіряйте питанням «що з цього отримає клієнт?». Якщо відповіді немає, речення зайве.</p>
+      </div>
+      <div class="card">
+        <h3><span class="num">4.</span> Страх помилитися</h3>
+        <p>Найбільший страх того, хто наймає, не ціна, а ризик: зірвані дедлайни, зникнення, переробки. Люди готові переплатити, щоб цей ризик прибрати.</p>
+        <p class="so"><b>Тому:</b> блок «Як я працюю» і пробне завдання важать більше, ніж здається. Вони відповідають на «а що, як ви мене підведете?».</p>
+      </div>
+      <div class="card">
+        <h3><span class="num">5.</span> Забагато вибору</h3>
+        <p>В експерименті з джемами стенд з 24 смаками збирав більше людей, а купували з нього в 10 разів рідше, ніж зі стенду з 6. Коли варіантів багато, людина відкладає рішення.</p>
+        <p class="so"><b>Тому:</b> одна роль і максимум 3 послуги. «Роблю все по СММ» читається як «нічого не роблю добре».</p>
+        <p class="src">Iyengar і Lepper, 2000</p>
+      </div>
+      <div class="card">
+        <h3><span class="num">6.</span> Ефект ореолу і кінець</h3>
+        <p>Одна сильна деталь фарбує все враження, і одна помилка теж. А запам'ятовується найяскравіший момент і те, чим усе закінчилось.</p>
+        <p class="so"><b>Тому:</b> жодних помилок у тексті, найсильніший кейс першим, а в кінці відгук і контакт в один клік.</p>
+        <p class="src">Ефект ореолу, Thorndike · правило піку і кінця, Kahneman</p>
+      </div>
+    </div>
+
+    <div class="quote">
+      <p>Коли я шукаю людину в проєкт, я не шукаю найталановитішу. Я шукаю ту, з якою мені буде спокійно. Портфоліо, яке це показує, виграє в портфоліо з красивішими роботами.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 2 -->
+<section class="band" id="screen">
+  <div class="in">
+    <div class="label">Розділ 2</div>
+    <h2 class="h2" style="margin-top:10px">Один екран, <em>а не 10 сторінок</em></h2>
+    <p class="sub">PDF на 10 сторінок у Canva ніхто не гортає до кінця. Ідеальне портфоліо читається за 2 хвилини: перший екран продає, усе нижче підтверджує. Ліворуч схема, праворуч що писати в кожному блоці і чому.</p>
+
+    <div class="screen">
+      <div class="mock" aria-hidden="true">
+        <div class="zone hot"><b>1. Заголовок</b>Що роблю + для кого + чим зручно</div>
+        <div class="zone hot"><b>2. Найсильніший результат</b>Одна цифра або один факт</div>
+        <div class="zone hot"><b>3. Кнопка зв'язку</b>Telegram в один клік</div>
+        <div class="fold">лінія першого екрана</div>
+        <div class="zone"><b>4. 2-3 кейси</b>Було → зробила → стало</div>
+        <div class="zone"><b>5. Як я працюю</b>3-4 кроки + пробне завдання</div>
+        <div class="zone"><b>6. Послуги і ціна</b>Максимум 3, ціна «від»</div>
+        <div class="zone"><b>7. Відгук і контакт</b>Сильний фінал</div>
+      </div>
+
+      <div class="steps">
+        <div class="step">
+          <h3><span class="num">1</span>Заголовок</h3>
+          <p class="why">Чому: це єдине, що прочитають точно. Він має відповісти на «з чим до вас іти».</p>
+          <div class="vs"><div class="no"><small>Не так</small>Привіт! Мене звати Аня, я SMM-спеціаліст і контент-мейкер з 2 роками досвіду</div><div class="yes"><small>Так</small>Монтую Reels для експертів з їхніх ефірів. 10 роликів за 3 дні у вашому стилі</div></div>
+        </div>
+        <div class="step">
+          <h3><span class="num">2</span>Найсильніший результат</h3>
+          <p class="why">Чому: цифра зупиняє погляд краще за будь-яке слово і одразу дає ефект ореолу всьому іншому.</p>
+          <div class="vs"><div class="no"><small>Не так</small>Маю досвід роботи з різними клієнтами</div><div class="yes"><small>Так</small>Ролик для клієнтки набрав 120 тис. переглядів і приніс 14 заявок</div></div>
+        </div>
+        <div class="step">
+          <h3><span class="num">3</span>Кнопка зв'язку вгорі</h3>
+          <p class="why">Чому: якщо людина вже переконана, вона не повинна гортати до кінця, щоб вам написати. Кожен зайвий крок губить частину людей.</p>
+        </div>
+        <div class="step">
+          <h3><span class="num">4</span>2-3 кейси</h3>
+          <p class="why">Чому: більше трьох вже не читають, а найслабший кейс тягне вниз враження від сильних. Краще 2 сильних, ніж 6 різних.</p>
+        </div>
+        <div class="step">
+          <h3><span class="num">5</span>Як я працюю</h3>
+          <p class="why">Чому: прибирає страх помилитися. Людина бачить, що буде після «так», і їй спокійно. Пробне завдання знімає ризик повністю.</p>
+        </div>
+        <div class="step">
+          <h3><span class="num">6</span>Послуги і ціна</h3>
+          <p class="why">Чому: без ціни людина думає «мабуть, дорого» і йде. Ціна «від» фільтрує тих, кому не підходить, і економить час вам обом.</p>
+        </div>
+        <div class="step">
+          <h3><span class="num">7</span>Відгук і контакт</h3>
+          <p class="why">Чому: правило піку і кінця. Закінчіть словами клієнта, а не своїми, і дайте один простий наступний крок.</p>
+          <div class="vs"><div class="no"><small>Не так</small>Буду рада співпраці! Пишіть, якщо будуть питання</div><div class="yes"><small>Так</small>Напишіть «хочу пробний», і я змонтую перший ролик безкоштовно</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 3 -->
+<section class="band" id="case">
+  <div class="narrow">
+    <div class="label">Розділ 3</div>
+    <h2 class="h2" style="margin-top:10px">Формула кейсу, <em>який читають</em></h2>
+    <p class="sub">Більшість кейсів звучать як «вела акаунт магазину». Замовнику це нічого не каже. Кейс має бути маленькою історією з результатом.</p>
+    <div class="formula">
+      <div><b>Було</b><span>Яка була проблема або задача</span></div>
+      <div><b>Зробила</b><span>2-3 конкретні дії, не все підряд</span></div>
+      <div><b>Стало</b><span>Результат цифрою або фактом</span></div>
+      <div><b>Значить</b><span>Що це дало клієнту в грошах чи часі</span></div>
+    </div>
+    <div class="example">
+      <div class="vs"><div class="no"><small>Не так</small>Вела Instagram салону краси. Робила пости, сторіс, Reels</div><div class="yes"><small>Так</small>Салон краси не мав записів з Instagram. Я переписала шапку, зробила 12 Reels про результати процедур і закріпила кнопку запису. За місяць 23 записи з Instagram, це приблизно 18 000 ₴ виручки для салону</div></div>
+    </div>
+    <p style="margin-top:18px">Немає точної цифри? Пишіть те, що можна перевірити: «зекономила клієнтці 6 годин на тиждень», «запустили за 4 дні замість місяця», «відповідь у чаті за 10 хвилин замість доби».</p>
+  </div>
+</section>
+
+<!-- 4 -->
+<section class="band" id="nocase" style="background:var(--blush)">
+  <div class="narrow">
+    <div class="label">Розділ 4</div>
+    <h2 class="h2" style="margin-top:10px">Якщо кейсів <em>ще немає</em></h2>
+    <p class="sub">Відсутність кейсів не проблема. Проблема, коли це намагаються сховати. 4 способи, які працюють і не виглядають несерйозно.</p>
+    <div class="grid2">
+      <div class="card"><h3>Навчальний кейс</h3><p>Зробіть роботу для себе або реального бізнесу знайомих і чесно підпишіть «навчальний кейс». Чесність тут працює на довіру, а не проти.</p></div>
+      <div class="card"><h3>Розбір замість кейсу</h3><p>Візьміть акаунт або сайт потенційного клієнта і покажіть 3 конкретні речі, які ви б змінили і чому. Це продає краще за будь-яке «маю досвід».</p></div>
+      <div class="card"><h3>Пробне завдання</h3><p>Запропонуйте зробити одну маленьку частину роботи безкоштовно або за символічну ціну. Ви знімаєте з людини весь ризик, і їй легко сказати «так».</p></div>
+      <div class="card"><h3>Покажіть процес</h3><p>Скрін вашої таблиці, плану, структури. Замовник бачить, що у вас у голові порядок, і для нього це вже аргумент.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 5 -->
+<section class="band" id="roles">
+  <div class="in">
+    <div class="label">Розділ 5</div>
+    <h2 class="h2" style="margin-top:10px">Готові тексти <em>під 5 ролей</em></h2>
+    <p class="sub">Тут більше, ніж у безкоштовній версії: 3 варіанти заголовка, найсильніший результат, пробне завдання і пакети з ціною. Те, що виділено кольором, замініть на своє.</p>
+    <div class="roles" role="group" aria-label="Роль">
+      <button class="role" data-role="edit" aria-pressed="true">Монтаж з ШІ</button>
+      <button class="role" data-role="threads" aria-pressed="false">Ведення Threads</button>
+      <button class="role" data-role="launch" aria-pressed="false">Асистент на запусках</button>
+      <button class="role" data-role="support" aria-pressed="false">Підтримка клієнтів</button>
+      <button class="role" data-role="tech" aria-pressed="false">Технічний спеціаліст</button>
+    </div>
+    <div class="rolebox" id="rolebox" aria-live="polite"></div>
+    <div class="tools"><button class="btn" id="copyRole">Скопіювати тексти цієї ролі</button><span class="status" id="st1" role="status"></span></div>
+  </div>
+</section>
+
+<!-- 6 -->
+<section class="band" id="price">
+  <div class="narrow">
+    <div class="label">Розділ 6</div>
+    <h2 class="h2" style="margin-top:10px">Як показати ціну, <em>щоб не злякати</em></h2>
+    <p class="sub">Тут працюють два ефекти, про які я вже писала: ефект якоря і ефект приманки.</p>
+    <div class="grid2">
+      <div class="card"><h3>Три пакети, а не одна ціна</h3><p>Коли є тільки одна ціна, людина вирішує «брати чи ні». Коли є три, вона вирішує «який з них». Найчастіше обирають середній, тому саме його робіть найвигіднішим.</p></div>
+      <div class="card"><h3>Найдорожчий перший</h3><p>Перша цифра, яку людина бачить, стає якорем. Після великого пакета середній здається розумним, а не дорогим.</p></div>
+      <div class="card"><h3>Ціна «від»</h3><p>Не «договірна». «Договірна» звучить як «спитайте, і я подумаю, скільки з вас взяти». «Від 3 000 ₴» дає орієнтир і не закриває розмову.</p></div>
+      <div class="card"><h3>Ціна за результат, а не за години</h3><p>«10 роликів на місяць» продається легше, ніж «20 годин монтажу». Людина купує результат, години її не цікавлять.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 7 -->
+<section class="band" id="flags">
+  <div class="in">
+    <div class="label">Розділ 7</div>
+    <h2 class="h2" style="margin-top:10px">Через що я <em>закриваю портфоліо</em></h2>
+    <p class="sub">Як людина, яка наймає і платить підрядникам, я бачу ці помилки постійно. Кожна з них коштує вам клієнта ще до розмови.</p>
+    <ul class="flags">
+      <li><b>«Роблю все»</b>. Список з 12 послуг, і незрозуміло, що з них ви робите добре</li>
+      <li><b>10 сторінок у Canva</b>, де головне на 7-й</li>
+      <li><b>Помилки в тексті.</b> Якщо людина не перевірила своє портфоліо, вона не перевірить і мій проєкт</li>
+      <li><b>Чужі дані на скрінах</b>: імена, суми, контакти клієнтів. Значить, мої дані теж не в безпеці</li>
+      <li><b>Немає ціни і «договірна»</b>. Я не хочу торгуватись, щоб дізнатись, чи ви мені по кишені</li>
+      <li><b>Немає контакту</b> або він захований у самому кінці</li>
+      <li><b>Посилання, які не відкриваються</b>, особливо з телефона</li>
+      <li><b>Голосові замість тексту</b> в першому повідомленні</li>
+      <li><b>«Добрий день, вам потрібен СММ?»</b>. Шаблонне повідомлення без жодного слова про мій проєкт</li>
+      <li><b>Скарги на минулих клієнтів.</b> Я одразу думаю, що колись так будуть говорити і про мене</li>
+    </ul>
+  </div>
+</section>
+
+<!-- 8 -->
+<section class="band" id="msg">
+  <div class="narrow">
+    <div class="label">Розділ 8</div>
+    <h2 class="h2" style="margin-top:10px">Перше повідомлення <em>замовнику</em></h2>
+    <p class="sub">Навіть найкраще портфоліо не відкриють, якщо повідомлення до нього шаблонне. Структура з 5 речень, яку я хотіла б отримувати сама.</p>
+    <div class="tpl">
+      <ol>
+        <li><b>Про них, а не про вас.</b> Одна деталь, яка показує, що ви подивились їхній проєкт</li>
+        <li><b>Що ви помітили.</b> Конкретна можливість або проблема</li>
+        <li><b>Чим ви можете допомогти</b> саме з цим, одним реченням</li>
+        <li><b>Доказ.</b> Один результат цифрою і посилання на портфоліо</li>
+        <li><b>Легкий наступний крок</b>, де людині не треба нічого вирішувати</li>
+      </ol>
+      <div class="letter" id="letter">Добрий день, [ім'я]! Подивилась ваш ефір про [тема], дуже сподобалось, як ви пояснюєте [деталь].
+
+Помітила, що з таких ефірів у вас майже немає коротких роликів, хоча там багато моментів, які могли б зібрати охоплення.
+
+Я монтую Reels для експертів з їхніх ефірів з допомогою ШІ, у вашому стилі.
+
+Для [ніша клієнта] ролик з ефіру набрав [результат]. Портфоліо тут: [посилання]
+
+Якщо цікаво, можу безкоштовно змонтувати один ролик з цього ефіру, щоб ви подивились, як це виглядає.</div>
+      <div class="tools"><button class="btn soft" id="copyLetter">Скопіювати шаблон</button><span class="status" id="st2" role="status"></span></div>
+    </div>
+  </div>
+</section>
+
+<!-- 9 -->
+<section class="band" id="score">
+  <div class="narrow">
+    <div class="label">Розділ 9</div>
+    <h2 class="h2" style="margin-top:10px">Перевірка <em>на 20 балів</em></h2>
+    <p class="sub">Відмічайте чесно. Відмітки зберігаються в цьому браузері, тож можна повернутись після правок.</p>
+    <ul class="score" id="scorelist">
+      <li class="grp">Перший екран</li>
+      <li><input type="checkbox" id="s1"><label for="s1">Заголовок каже, що я роблю і для кого</label></li>
+      <li><input type="checkbox" id="s2"><label for="s2">Є одна роль, а не «все по СММ»</label></li>
+      <li><input type="checkbox" id="s3"><label for="s3">На першому екрані є цифра або сильний факт</label></li>
+      <li><input type="checkbox" id="s4"><label for="s4">Кнопка зв'язку видна без гортання</label></li>
+      <li><input type="checkbox" id="s5"><label for="s5">Немає «привіт, мене звати» і «я креативна і відповідальна»</label></li>
+      <li class="grp">Докази</li>
+      <li><input type="checkbox" id="s6"><label for="s6">2-3 кейси, не більше</label></li>
+      <li><input type="checkbox" id="s7"><label for="s7">Кожен кейс за формулою «було, зробила, стало»</label></li>
+      <li><input type="checkbox" id="s8"><label for="s8">Найсильніший кейс стоїть першим</label></li>
+      <li><input type="checkbox" id="s9"><label for="s9">Навчальні кейси чесно підписані</label></li>
+      <li><input type="checkbox" id="s10"><label for="s10">Є хоча б один відгук словами клієнта</label></li>
+      <li class="grp">Спокій для замовника</li>
+      <li><input type="checkbox" id="s11"><label for="s11">Описано 3-4 кроки роботи</label></li>
+      <li><input type="checkbox" id="s12"><label for="s12">Є пробне завдання або маленький перший крок</label></li>
+      <li><input type="checkbox" id="s13"><label for="s13">Вказано терміни: за скільки днів буде результат</label></li>
+      <li><input type="checkbox" id="s14"><label for="s14">Ціна «від» або 3 пакети</label></li>
+      <li><input type="checkbox" id="s15"><label for="s15">Ціна за результат, а не за години</label></li>
+      <li class="grp">Охайність</li>
+      <li><input type="checkbox" id="s16"><label for="s16">Жодної помилки в тексті (перевірила вголос)</label></li>
+      <li><input type="checkbox" id="s17"><label for="s17">На скрінах замазані чужі дані</label></li>
+      <li><input type="checkbox" id="s18"><label for="s18">Усі посилання відкриваються з телефона</label></li>
+      <li><input type="checkbox" id="s19"><label for="s19">Читається за 2 хвилини</label></li>
+      <li><input type="checkbox" id="s20"><label for="s20">Закінчується відгуком і простим наступним кроком</label></li>
+    </ul>
+    <div class="result" id="result" role="status">0 з 20</div>
+  </div>
+</section>
+
+<!-- 10 -->
+<section class="band" id="plan">
+  <div class="narrow">
+    <div class="label">Розділ 10</div>
+    <h2 class="h2" style="margin-top:10px">План <em>на одну годину</em></h2>
+    <p class="sub">Не відкладайте до «ідеального моменту». Цього часу достатньо, щоб зібрати першу версію.</p>
+    <div class="plan">
+      <div><b>0-10 хв</b><span>Оберіть одну роль і напишіть 3 варіанти заголовка. Залиште той, який зрозуміє людина зовсім не з вашої сфери</span></div>
+      <div><b>10-25 хв</b><span>Випишіть 2-3 кейси за формулою «було, зробила, стало». Немає кейсів, тоді один навчальний і один розбір</span></div>
+      <div><b>25-35 хв</b><span>Опишіть 3-4 кроки роботи і придумайте пробне завдання</span></div>
+      <div><b>35-45 хв</b><span>Сформуйте 3 пакети з ціною «від»</span></div>
+      <div><b>45-55 хв</b><span>Зберіть усе на одну сторінку: Notion, Telegraph, Google Doc або PDF на 1-2 сторінки</span></div>
+      <div><b>55-60 хв</b><span>Пройдіть перевірку на 20 балів і відкрийте все з телефона</span></div>
+    </div>
+    <p style="margin-top:22px">Коли зберете, поділіться в темі «Знайомство і спілкування». Свіжий погляд з боку завжди помічає те, що ми самі пропускаємо🤍</p>
+  </div>
+</section>
+
+<footer class="band">
+  <div class="in">
+    <span>© Таня Остапенко · матеріал для учасників «Закулісся», будь ласка, не пересилайте його</span>
+    <span>Безкоштовна версія: <a href="portfolio.html" style="color:var(--wine)">smmtanya.github.io/portfolio.html</a></span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var R = {
+    edit:{
+      heads:["Монтую Reels для експертів з їхніх ефірів. [N] роликів за [N] дні у вашому стилі","Перетворюю один ваш ефір на [N] коротких відео, поки ви займаєтесь своєю справою","Монтаж з ШІ для експертів: швидко, у вашому стилі і без нескінченних правок"],
+      proof:"Ролик для [ніша клієнта] набрав [N] переглядів і приніс [N] заявок",
+      trial:"Безкоштовно змонтую 1 ролик з вашого ефіру, щоб ви побачили стиль",
+      steps:["Ви надсилаєте ефір і 2-3 ролики, які вам подобаються","За 24 години я роблю пробний ролик","Після вашого «так» монтую весь пакет за [N] дні","Ролики приходять з обкладинками і субтитрами, готові до публікації"],
+      packs:[["Максимум","від [ціна] ₴","20 роликів, обкладинки, субтитри, графік публікацій"],["Оптимальний","від [ціна] ₴","12 роликів, обкладинки, субтитри"],["Старт","від [ціна] ₴","6 роликів з субтитрами"]]
+    },
+    threads:{
+      heads:["Веду Threads для експертів: текстом, без відео і без вашого обличчя в кадрі","Пишу Threads за експертів так, що клієнти думають, що це писали ви","Нові клієнти з Threads для експертів, які не хочуть знімати відео"],
+      proof:"Акаунт [ніша клієнта] за місяць: +[N] підписників і [N] заявок у директ",
+      trial:"Напишу 5 пробних постів у вашому стилі до того, як ви вирішите працювати",
+      steps:["Знайомство на 30 хвилин: ваш продукт, клієнти і сильні теми","Я пишу 5 пробних постів","Запускаємо щоденне ведення і відповіді на коментарі","Раз на місяць звіт: що спрацювало і що робимо далі"],
+      packs:[["Максимум","від [ціна] ₴","2 пости на день, коментарі, стратегія, звіт"],["Оптимальний","від [ціна] ₴","1 пост на день, коментарі, звіт"],["Старт","від [ціна] ₴","4 пости на тиждень"]]
+    },
+    launch:{
+      heads:["Допомагаю експертам проводити запуски без хаосу, від плану до останнього дня продажів","Беру на себе всю рутину запуску, щоб ви займались тільки продуктом","Асистент на запусках: план, дедлайни і тексти, поки ви ведете ефіри"],
+      proof:"Запуск [продукт клієнта]: [N] продажів, і жодного зірваного дедлайну",
+      trial:"Безкоштовно складу план вашого наступного запуску по днях",
+      steps:["Розбираємо продукт, дату старту і ваші ресурси","Я складаю план запуску по днях","Веду задачі, нагадую про дедлайни, готую тексти","Після запуску звіт і висновки на наступний"],
+      packs:[["Максимум","від [ціна] ₴","План, тексти, ведення задач і чату, звіт"],["Оптимальний","від [ціна] ₴","План, ведення задач, тексти розсилок"],["Старт","від [ціна] ₴","План запуску по днях і контроль дедлайнів"]]
+    },
+    support:{
+      heads:["Відповідаю вашим клієнтам так, щоб вони залишались і купували знову","Беру на себе чати клубу, щоб ви не відповідали на одні й ті самі питання","Підтримка учасників курсів і клубів: швидко, тепло і у вашому стилі"],
+      proof:"Відповідь у чаті клієнтки скоротилась з [N] годин до [N] хвилин",
+      trial:"Безкоштовно складу базу з 20 відповідей на найчастіші питання ваших клієнтів",
+      steps:["Ви даєте доступи і правила спілкування","Я збираю базу відповідей у вашому стилі","Беру чати у погоджений час","Раз на тиждень звіт: що турбує клієнтів"],
+      packs:[["Максимум","від [ціна] ₴","Чати 7 днів на тиждень, база відповідей, звіти"],["Оптимальний","від [ціна] ₴","Чати 5 днів на тиждень, база відповідей"],["Старт","від [ціна] ₴","База відповідей і чати 3 дні на тиждень"]]
+    },
+    tech:{
+      heads:["Налаштовую сайт, оплату і бота, щоб ви продавали онлайн без технічного болю","Запускаю техніку для онлайн-продукту за [N] днів, а не за місяць","Технічний спеціаліст для експертів: усе працює саме, а ви не розбираєтесь у сервісах"],
+      proof:"Сайт з оплатою і автоматичним доступом до клубу запустили за [N] днів",
+      trial:"Безкоштовно розберу вашу поточну схему продажу і покажу, де губляться оплати",
+      steps:["Розбираємо, що і як ви продаєте","Я пропоную просту схему без зайвих сервісів","Налаштовую і тестую разом з вами","Даю коротку інструкцію, щоб ви могли все самі"],
+      packs:[["Максимум","від [ціна] ₴","Сайт, оплата, бот, розсилки, супровід місяць"],["Оптимальний","від [ціна] ₴","Сайт з оплатою і автоматичний доступ"],["Старт","від [ціна] ₴","Підключення оплати до вашого сайту"]]
+    }
+  };
+  var cur="edit", box=document.getElementById("rolebox");
+  function esc(s){return s.replace(/[&<>"]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c];});}
+  function hi(s){return esc(s).replace(/\[([^\]]+)\]/g,'<span class="ph">[$1]</span>');}
+  function render(){
+    var d=R[cur];
+    box.innerHTML=
+      '<h3>3 варіанти заголовка</h3><ul>'+d.heads.map(function(h){return '<li>'+hi(h)+'</li>';}).join('')+'</ul>'+
+      '<h3>Найсильніший результат на перший екран</h3><p style="margin-top:8px">'+hi(d.proof)+'</p>'+
+      '<h3>Пробне завдання, яке знімає ризик</h3><p style="margin-top:8px">'+hi(d.trial)+'</p>'+
+      '<h3>Як я працюю</h3><ul>'+d.steps.map(function(s){return '<li>'+hi(s)+'</li>';}).join('')+'</ul>'+
+      '<h3>3 пакети: найдорожчий перший, середній найвигідніший</h3><div class="pk">'+d.packs.map(function(p,i){return '<div'+(i===1?' class="mid"':'')+'><b>'+esc(p[0])+'</b>'+hi(p[1])+'<br>'+hi(p[2])+'</div>';}).join('')+'</div>';
+  }
+  function asText(){
+    var d=R[cur],t=[];
+    t.push("ЗАГОЛОВОК (оберіть один)");d.heads.forEach(function(h){t.push("- "+h);});
+    t.push("","НАЙСИЛЬНІШИЙ РЕЗУЛЬТАТ",d.proof,"","ПРОБНЕ ЗАВДАННЯ",d.trial,"","ЯК Я ПРАЦЮЮ");
+    d.steps.forEach(function(s,i){t.push((i+1)+") "+s);});
+    t.push("","ПАКЕТИ");d.packs.forEach(function(p){t.push("- "+p[0]+", "+p[1]+": "+p[2]);});
+    return t.join("\n");
+  }
+  function copy(text,el){
+    function done(ok){el.textContent=ok?"Скопійовано":"Не вдалось, виділіть текст вручну";setTimeout(function(){el.textContent="";},3500);}
+    if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(text).then(function(){done(true);},function(){done(false);});}
+    else{try{var ta=document.createElement("textarea");ta.value=text;document.body.appendChild(ta);ta.select();var ok=document.execCommand("copy");ta.remove();done(ok);}catch(e){done(false);}}
+  }
+  document.querySelectorAll(".role").forEach(function(b){
+    b.addEventListener("click",function(){
+      cur=b.getAttribute("data-role");
+      document.querySelectorAll(".role").forEach(function(x){x.setAttribute("aria-pressed",x===b?"true":"false");});
+      render();
+    });
+  });
+  document.getElementById("copyRole").addEventListener("click",function(){copy(asText(),document.getElementById("st1"));});
+  document.getElementById("copyLetter").addEventListener("click",function(){copy(document.getElementById("letter").textContent,document.getElementById("st2"));});
+  render();
+
+  var boxes=Array.prototype.slice.call(document.querySelectorAll("#scorelist input")),saved={};
+  try{saved=JSON.parse(localStorage.getItem("pfpro-score")||"{}");}catch(e){saved={};}
+  function upd(){
+    var n=boxes.filter(function(b){return b.checked;}).length,msg;
+    if(n>=18)msg=" Сильне портфоліо, можна надсилати🍷";
+    else if(n>=13)msg=" Хороша база. Доробіть пункти без відмітки, і буде сильно";
+    else if(n>=1)msg=" Почніть з першого екрана, він дає найбільший ефект";
+    else msg="";
+    document.getElementById("result").textContent=n+" з 20."+msg;
+  }
+  boxes.forEach(function(b){
+    if(saved[b.id])b.checked=true;
+    b.addEventListener("change",function(){saved[b.id]=b.checked;try{localStorage.setItem("pfpro-score",JSON.stringify(saved));}catch(e){}upd();});
+  });
+  upd();
+})();
+</script>
+</body>
+</html>
